@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h2>Invoice</h2>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">Seller</th>
+                <th colspan="2">Buyer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td th:text="${invoice.seller}">Seller Name</td>
+                <td>Name</td>
+                <td th:text="${invoice.buyer}">Buyer Name</td>
+            </tr>
+            <tr>
+                <td>GSTIN</td>
+                <td th:text="${invoice.sellerGstin}">Seller GSTIN</td>
+                <td>GSTIN</td>
+                <td th:text="${invoice.buyerGstin}">Buyer GSTIN</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td th:text="${invoice.sellerAddress}">Seller Address</td>
+                <td>Address</td>
+                <td th:text="${invoice.buyerAddress}">Buyer Address</td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
+    <table>
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Rate</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${invoice.items}">
+                <td th:text="${item.name}">Item Name</td>
+                <td th:text="${item.quantity}">Item Quantity</td>
+                <td th:text="${item.rate}">Item Rate</td>
+                <td th:text="${item.amount}">Item Amount</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
+
+
+
