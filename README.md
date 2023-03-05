@@ -7,3 +7,4 @@ Description:
 3. Includes the ability to download the above-generated PDF.
 4. The Java Template Engine - ThymeLeaf or iText is used to generate the PDF
 5. The PDF is stored on the local storage which can be retrieved later.
+6. Added unit test case
